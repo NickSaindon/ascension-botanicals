@@ -1,0 +1,642 @@
+// Variables
+$background-light: #fafafa;
+$foreground-light: #fff;
+$text-primary-light: #000;
+$text-secondary-light: #666;
+$button-primary-hover-light: #383838;
+$button-secondary-hover-light: #f2f2f2;
+$button-secondary-border-light: #ebebeb;
+
+$background-dark: #000;
+$foreground-dark: #000;
+$text-primary-dark: #ededed;
+$text-secondary-dark: #999;
+$button-primary-hover-dark: #ccc;
+$button-secondary-hover-dark: #1a1a1a;
+$button-secondary-border-dark: #1a1a1a;
+
+$breakpoint-mobile: 600px;
+
+// Hero Section Variables
+$hero-height-desktop: 950px;
+$hero-height-tablet: 400px;
+$hero-height-mobile: 350px;
+$breakpoint-tablet: 768px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin smooth-transition {
+  transition: 0.2s;
+}
+
+// Hero Animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+// Hero Section Styles
+.heroSection {
+  position: relative;
+  width: 100%;
+  height: $hero-height-desktop;
+  overflow: hidden;
+
+  .waveDecoration {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 115px;
+    line-height: 0;
+    z-index: 100;
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  @media (max-width: $breakpoint-tablet) {
+    height: $hero-height-tablet;
+    border-radius: 8px;
+  }
+
+  @media (max-width: $breakpoint-mobile) {
+    height: $hero-height-mobile;
+    border-radius: 6px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // background: linear-gradient(
+    //   135deg,
+    //   rgba(24, 144, 255, 0.85) 0%,
+    //   rgba(82, 196, 26, 0.75) 50%,
+    //   rgba(250, 173, 20, 0.85) 100%
+    // );
+    z-index: 2;
+    animation: fadeIn 1s ease-in;
+  }
+
+  .heroImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
+    filter: brightness(0.7);
+  }
+
+  .heroOverlay {
+    position: relative;
+    z-index: 3;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: normal;
+    text-align: left;
+    padding: 2rem 2rem 2rem 6rem;
+    color: white;
+
+    .heroTitle {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      color: white !important;
+      text-shadow: 2px 4px 8px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 0.8s ease-out;
+      line-height: 1.2;
+
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 2.5rem;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.8rem;
+      }
+    }
+
+    .heroSubtitle {
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin: 0 0 2rem 0;
+      color: rgba(255, 255, 255, 0.95) !important;
+      text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.3);
+      animation: fadeInUp 1s ease-out;
+      max-width: 700px;
+
+      @media (max-width: $breakpoint-tablet) {
+        font-size: 1.2rem;
+        margin: 0 0 1.5rem 0;
+      }
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1rem;
+        margin: 0 0 1rem 0;
+      }
+    }
+
+    .heroButtons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      justify-content: left;
+      animation: fadeInUp 1.2s ease-out;
+
+      @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+        width: 100%;
+        max-width: 300px;
+        gap: 0.75rem;
+      }
+    }
+  }
+
+  .heroDecoration {
+    position: absolute;
+    z-index: 2;
+    opacity: 0.1;
+    pointer-events: none;
+
+    &.circle1 {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: white;
+      top: -100px;
+      right: -100px;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    &.circle2 {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      background: white;
+      bottom: -50px;
+      left: -50px;
+      animation: float 8s ease-in-out infinite 2s;
+    }
+
+    &.square {
+      width: 150px;
+      height: 150px;
+      background: white;
+      top: 50%;
+      left: 10%;
+      transform: translateY(-50%) rotate(45deg);
+      animation: float 7s ease-in-out infinite 1s;
+    }
+  }
+}
+
+.contentWrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+// Original Home Styles
+
+.page {
+  --background: #{$background-light};
+  --foreground: #{$foreground-light};
+  --text-primary: #{$text-primary-light};
+  --text-secondary: #{$text-secondary-light};
+  --button-primary-hover: #{$button-primary-hover-light};
+  --button-secondary-hover: #{$button-secondary-hover-light};
+  --button-secondary-border: #{$button-secondary-border-light};
+
+  @include flex-center;
+  min-height: 100vh;
+  font-family: var(--font-geist-sans);
+  background-color: var(--background);
+
+  @media (prefers-color-scheme: dark) {
+    --background: #{$background-dark};
+    --foreground: #{$foreground-dark};
+    --text-primary: #{$text-primary-dark};
+    --text-secondary: #{$text-secondary-dark};
+    --button-primary-hover: #{$button-primary-hover-dark};
+    --button-secondary-hover: #{$button-secondary-hover-dark};
+    --button-secondary-border: #{$button-secondary-border-dark};
+  }
+}
+
+.main {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  background-color: var(--foreground);
+  padding: 120px 60px;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 48px 24px;
+  }
+}
+
+.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 24px;
+
+  @media (max-width: $breakpoint-mobile) {
+    gap: 16px;
+  }
+
+  h1 {
+    max-width: 320px;
+    font-size: 40px;
+    font-weight: 600;
+    line-height: 48px;
+    letter-spacing: -2.4px;
+    text-wrap: balance;
+    color: var(--text-primary);
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 32px;
+      line-height: 40px;
+      letter-spacing: -1.92px;
+    }
+  }
+
+  p {
+    max-width: 440px;
+    font-size: 18px;
+    line-height: 32px;
+    text-wrap: balance;
+    color: var(--text-secondary);
+  }
+
+  a {
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+}
+
+.ctas {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 440px;
+  gap: 16px;
+  font-size: 14px;
+
+  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    padding: 0 16px;
+    border-radius: 128px;
+    border: 1px solid transparent;
+    @include smooth-transition;
+    cursor: pointer;
+    width: fit-content;
+    font-weight: 500;
+  }
+}
+
+.primary {
+  background: var(--text-primary);
+  color: var(--background);
+  gap: 8px;
+
+  // Enable hover only on non-touch devices
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--button-primary-hover);
+      border-color: transparent;
+    }
+  }
+}
+
+.secondary {
+  border-color: var(--button-secondary-border);
+
+  // Enable hover only on non-touch devices
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      background: var(--button-secondary-hover);
+      border-color: transparent;
+    }
+  }
+}
+
+.logo {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1);
+  }
+}
+
+// Three Features Section
+.threeFeatures {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 2rem 1rem;
+  }
+
+  .featureBox {
+    text-align: center;
+
+    .featureImage {
+      width: 100%;
+      height: 250px;
+      position: relative;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+      overflow: hidden;
+
+      img {
+        object-fit: cover;
+      }
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #262626;
+    }
+
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #595959;
+    }
+  }
+}
+
+// Our Ascension Red Section
+.ascensionSection {
+  background: linear-gradient(135deg, #8b0000 0%, #dc143c 100%);
+  padding: 10rem 2rem;
+  color: white;
+  position: relative;
+  overflow: visible;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 3rem 1rem;
+  }
+
+  .waveDecorationTop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .waveDecorationBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  .ascensionImage {
+    position: relative;
+    z-index: 2;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .ascensionContent {
+    position: relative;
+    z-index: 2;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: white;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 2rem;
+      }
+    }
+
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: rgba(255, 255, 255, 0.95);
+    }
+  }
+}
+
+.whiteButton {
+  background: white !important;
+  color: #8b0000 !important;
+  border: none !important;
+  font-weight: 600 !important;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.9) !important;
+    transform: translateY(-2px);
+  }
+}
+
+// Feature Products Section
+.featureProducts {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 2rem 1rem;
+  }
+
+  .sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #262626;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .productImagePlaceholder {
+    width: 100%;
+    height: 200px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    color: #666;
+  }
+}
+
+// Lets Ascend Together Section
+.ascendTogether {
+  padding: 4rem 2rem;
+  padding-top: 6rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+
+  @media (max-width: $breakpoint-mobile) {
+    padding: 2rem 1rem;
+    padding-top: 4rem;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: transparent;
+    z-index: 0;
+
+    @media (max-width: $breakpoint-mobile) {
+      height: 60px;
+    }
+  }
+
+  .wholesellerImage {
+    position: absolute;
+  }
+
+  .leavesDecoration {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #262626;
+
+    @media (max-width: $breakpoint-mobile) {
+      font-size: 2rem;
+    }
+  }
+
+  .ctaCard {
+    border-radius: 12px;
+    padding: 3rem;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    // overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+    }
+
+    @media (max-width: $breakpoint-mobile) {
+      padding: 2rem;
+      min-height: 300px;
+    }
+
+    .ctaContent {
+      z-index: 2;
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+
+        @media (max-width: $breakpoint-mobile) {
+          font-size: 1.5rem;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        width: 70%;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.95);
+      }
+    }
+
+    .ctaImage {
+      position: absolute;
+      right: -20px;
+      bottom: 0;
+      z-index: 1;
+
+      @media (max-width: $breakpoint-mobile) {
+        display: none;
+      }
+    }
+  }
+}
