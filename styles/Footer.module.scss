@@ -1,0 +1,132 @@
+// Footer Styles
+
+.footer {
+  background: #ffffff;
+  padding: 0;
+  margin-top: auto;
+}
+
+.footerContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 24px 40px;
+}
+
+.logoSection {
+  img {
+    margin-bottom: 20px;
+  }
+}
+
+.disclaimer {
+  font-size: 11px;
+  line-height: 1.6;
+  color: #333;
+  text-align: justify;
+  margin: 0;
+}
+
+.menuSection,
+.contactSection {
+  .sectionTitle {
+    display: block;
+    font-size: 16px;
+    font-weight: 700;
+    color: #171717;
+    margin-bottom: 20px;
+  }
+}
+
+.linkList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  li {
+    margin-bottom: 12px;
+
+    a {
+      color: #333;
+      font-size: 14px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: #9f1102;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.contactInfo {
+  width: 100%;
+
+  .contactItem {
+    display: flex;
+    flex-direction: column;
+
+    span {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  }
+}
+
+.socialIcons {
+  margin-top: 20px !important;
+
+  a {
+    color: #171717;
+    font-size: 24px;
+    transition: color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      color: #9f1102;
+    }
+
+    svg {
+      display: block;
+    }
+  }
+
+  .tiktokIcon {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
+}
+
+.copyrightBar {
+  background: #9f1102;
+  padding: 15px 24px;
+  text-align: center;
+}
+
+.copyrightText {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .footerContainer {
+    padding: 40px 20px 30px;
+  }
+
+  .logoSection {
+    margin-bottom: 30px;
+  }
+
+  .menuSection,
+  .contactSection {
+    margin-bottom: 30px;
+  }
+}
