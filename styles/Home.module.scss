@@ -444,7 +444,7 @@ $breakpoint-tablet: 768px;
 
   .waveDecorationBottom {
     position: absolute;
-    bottom: 0;
+    bottom: -1px;
     left: 0;
     width: 100%;
     line-height: 0;
@@ -591,7 +591,7 @@ $breakpoint-tablet: 768px;
     min-height: 350px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    // justify-content: space-between;
     position: relative;
     // overflow: hidden;
     transition: transform 0.3s ease;
@@ -639,4 +639,46 @@ $breakpoint-tablet: 768px;
       }
     }
   }
+
+  .ctaBottomCard {
+    border-radius: 12px;
+    margin-top: 30px;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-8px);
+    }
+
+    .ctaContent {
+      z-index: 2;
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+
+        @media (max-width: $breakpoint-mobile) {
+          font-size: 1.5rem;
+        }
+      }
+
+      p {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 2rem;
+        color: rgba(255, 255, 255, 0.95);
+      }
+    }
+  }
+}
+
+.contactImage {
+  position: absolute;
+  top: -300px;
+  left: 50px;
 }

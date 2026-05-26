@@ -13,6 +13,7 @@ import {
   Divider,
   theme,
   Flex,
+  Collapse,
 } from "antd";
 import {
   HomeOutlined,
@@ -23,6 +24,7 @@ import {
   RocketOutlined,
   ThunderboltOutlined,
 } from "@ant-design/icons";
+import type { CollapseProps } from "antd";
 import styles from "@/styles/Home.module.scss";
 
 const { Title, Paragraph, Text } = Typography;
@@ -34,6 +36,34 @@ export default function Home() {
   const scrollToContent = () => {
     const element = document.getElementById("main-content");
     element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const text = `
+  A dog is a type of domesticated animal.
+  Known for its loyalty and faithfulness,
+  it can be found as a welcome guest in many households across the world.
+`;
+
+  const items: CollapseProps["items"] = [
+    {
+      key: "1",
+      label: "This is panel header 1",
+      children: <p>{text}</p>,
+    },
+    {
+      key: "2",
+      label: "This is panel header 2",
+      children: <p>{text}</p>,
+    },
+    {
+      key: "3",
+      label: "This is panel header 3",
+      children: <p>{text}</p>,
+    },
+  ];
+
+  const onChange = (key: string | string[]) => {
+    console.log(key);
   };
 
   return (
@@ -280,7 +310,7 @@ export default function Home() {
                   size="large"
                   className={styles.whiteButton}
                 >
-                  About Us
+                  Wholesale
                 </Button>
               </div>
               <div className={styles.ctaImage}>
@@ -289,7 +319,7 @@ export default function Home() {
                   className="wholesellerImage"
                   alt="Ambassador"
                   width={200}
-                  height={250}
+                  height={275}
                 />
               </div>
             </div>
@@ -299,7 +329,6 @@ export default function Home() {
               className={styles.ctaCard}
               style={{
                 backgroundColor: "#8B0000",
-                border: "2px solid #8B0000",
               }}
             >
               <div className={styles.ctaContent}>
@@ -321,191 +350,91 @@ export default function Home() {
                   src="/images/influencer.png"
                   alt="Ambassador"
                   width={200}
-                  height={250}
+                  height={260}
                 />
               </div>
             </div>
           </Col>
         </Row>
-        <Row>
-          <Col>
-            <Card
-              title="Default size card"
-              extra={<a href="#">More</a>}
-              style={{ width: 300 }}
+        <Row gutter={[32, 32]}>
+          <Col span={24}>
+            <div
+              className={styles.ctaBottomCard}
+              style={{
+                backgroundColor: "#8B0000",
+                border: "2px solid #8B0000",
+              }}
             >
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
+              <div className={styles.ctaContent}>
+                <h3>Join Our Affiliate Program</h3>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                  Praesent hendrerit erat euis accumsan.
+                </p>
+              </div>
+            </div>
           </Col>
         </Row>
       </section>
 
-      <div
-        style={{
-          minHeight: "calc(100vh - 64px)",
-          backgroundColor: token.colorBgLayout,
-          padding: "40px 20px",
-        }}
-      >
-        <div className={styles.contentWrapper} id="main-content">
-          <Flex vertical gap="large" style={{ width: "100%" }}>
-            {/* Grid Layout */}
-            <Card title="Responsive Grid">
-              <Row gutter={[16, 16]}>
-                <Col xs={24} sm={12} md={8}>
-                  <Card
-                    size="small"
-                    style={{
-                      backgroundColor: token.colorPrimary,
-                      color: "white",
-                    }}
-                  >
-                    <Title level={4} style={{ color: "white", margin: 0 }}>
-                      Card 1
-                    </Title>
-                    <Paragraph style={{ color: "white", margin: 0 }}>
-                      Custom primary color
-                    </Paragraph>
-                  </Card>
-                </Col>
-                <Col xs={24} sm={12} md={8}>
-                  <Card
-                    size="small"
-                    style={{
-                      backgroundColor: token.colorSuccess,
-                      color: "white",
-                    }}
-                  >
-                    <Title level={4} style={{ color: "white", margin: 0 }}>
-                      Card 2
-                    </Title>
-                    <Paragraph style={{ color: "white", margin: 0 }}>
-                      Custom success color
-                    </Paragraph>
-                  </Card>
-                </Col>
-                <Col xs={24} sm={12} md={8}>
-                  <Card
-                    size="small"
-                    style={{
-                      backgroundColor: token.colorWarning,
-                      color: "white",
-                    }}
-                  >
-                    <Title level={4} style={{ color: "white", margin: 0 }}>
-                      Card 3
-                    </Title>
-                    <Paragraph style={{ color: "white", margin: 0 }}>
-                      Custom warning color
-                    </Paragraph>
-                  </Card>
-                </Col>
-              </Row>
-            </Card>
+      <section className={styles.ascendTogether}>
+        <h2>FAQ</h2>
+        <Collapse items={items} defaultActiveKey={["1"]} onChange={onChange} />
+      </section>
 
-            {/* Header */}
-            <Card>
-              <Title level={1}>
-                <HomeOutlined /> Ant Design Integration
-              </Title>
-              <Paragraph>
-                Welcome! This is a demo of Ant Design integrated with Next.js
-                using a custom theme. The custom theme is configured in{" "}
-                <Text code>theme/themeConfig.ts</Text>.
-              </Paragraph>
-            </Card>
-
-            {/* Buttons Demo */}
-            <Card title="Button Components">
-              <Space wrap>
-                <Button type="primary">Primary Button</Button>
-                <Button>Default Button</Button>
-                <Button type="dashed">Dashed Button</Button>
-                <Button type="text">Text Button</Button>
-                <Button type="link">Link Button</Button>
-                <Button type="primary" danger>
-                  Danger Button
-                </Button>
-                <Button type="primary" disabled>
-                  Disabled Button
-                </Button>
-              </Space>
-            </Card>
-
-            {/* Status Tags */}
-            <Card title="Status Tags">
-              <Space wrap>
-                <Tag icon={<CheckCircleOutlined />} color="success">
-                  Success
-                </Tag>
-                <Tag icon={<InfoCircleOutlined />} color="processing">
-                  Processing
-                </Tag>
-                <Tag icon={<WarningOutlined />} color="warning">
-                  Warning
-                </Tag>
-                <Tag icon={<CheckCircleOutlined />} color="error">
-                  Error
-                </Tag>
-                <Tag color="default">Default</Tag>
-                <Tag color="magenta">Magenta</Tag>
-                <Tag color="purple">Purple</Tag>
-                <Tag color="cyan">Cyan</Tag>
-              </Space>
-            </Card>
-
-            {/* Form Example */}
-            <Card title="Form Components">
-              <Form layout="vertical" style={{ maxWidth: 600 }}>
-                <Form.Item label="Username" name="username">
-                  <Input
-                    prefix={<UserOutlined />}
-                    placeholder="Enter your username"
-                  />
-                </Form.Item>
-                <Form.Item label="Email" name="email">
-                  <Input type="email" placeholder="Enter your email" />
-                </Form.Item>
-                <Form.Item>
-                  <Button type="primary">Submit</Button>
-                </Form.Item>
-              </Form>
-            </Card>
-
-            {/* Theme Info */}
-            <Card title="Theme Configuration">
-              <Divider>Design Tokens</Divider>
-              <Flex vertical gap="small">
-                <Text>
-                  Primary Color: <Text code>{token.colorPrimary}</Text>
-                </Text>
-                <Text>
-                  Success Color: <Text code>{token.colorSuccess}</Text>
-                </Text>
-                <Text>
-                  Warning Color: <Text code>{token.colorWarning}</Text>
-                </Text>
-                <Text>
-                  Error Color: <Text code>{token.colorError}</Text>
-                </Text>
-                <Text>
-                  Border Radius: <Text code>{token.borderRadius}px</Text>
-                </Text>
-                <Text>
-                  Font Size: <Text code>{token.fontSize}px</Text>
-                </Text>
-              </Flex>
-              <Divider />
-              <Paragraph type="secondary">
-                You can customize these values and more in{" "}
-                <Text code>theme/themeConfig.ts</Text>
-              </Paragraph>
-            </Card>
-          </Flex>
+      {/* Our Ascension Red Section */}
+      <section className={styles.ascensionSection}>
+        <div className={styles.waveDecorationTop}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+              fill="#ffffff"
+            />
+          </svg>
         </div>
-      </div>
+        <Row gutter={[48, 48]} align="middle">
+          <Col xs={24} md={12}>
+            <div className={styles.ascensionImage}>
+              <Image
+                src="/images/contact-image.jpg"
+                alt="man on cell phone"
+                className={styles.contactImage}
+                width={600}
+                height={475}
+              />
+            </div>
+          </Col>
+          <Col xs={24} md={12}>
+            <div className={styles.ascensionContent}>
+              <h2>Let Us Know Your Thoughts</h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
+                Praesent hendrerit erat euis accumsan felis eget tincidunt.
+                Donec vitae orci. In felis. Morbius mauris arcu, tincidunt
+                commodo, dictum vitae, lobortis vel, neque. Praesent in metus
+                aliquot. Nunc placerat lacus et consequat. Vestibulum ante ipsum
+                primis in faucibus orci luctus et ultrices posuere cubilia
+                Curae; Fusce id purus, Ut odio.
+              </p>
+              <Button
+                type="primary"
+                size="large"
+                className={styles.whiteButton}
+              >
+                About Us
+              </Button>
+            </div>
+          </Col>
+        </Row>
+        <div className={styles.waveDecorationBottom}>
+          <svg viewBox="0 0 1440 120" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M0,64L48,69.3C96,75,192,85,288,80C384,75,480,53,576,48C672,43,768,53,864,58.7C960,64,1056,64,1152,58.7C1248,53,1344,43,1392,37.3L1440,32L1440,120L1392,120C1344,120,1248,120,1152,120C1056,120,960,120,864,120C768,120,672,120,576,120C480,120,384,120,288,120C192,120,96,120,48,120L0,120Z"
+              fill="#ffffff"
+            />
+          </svg>
+        </div>
+      </section>
     </>
   );
 }

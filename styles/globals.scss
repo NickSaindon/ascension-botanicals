@@ -69,6 +69,49 @@ a {
   }
 }
 
+// Remove Ant Design menu item underlines (border-bottom on ::after pseudo-element)
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item::after,
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected::after,
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-active::after,
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item:hover::after {
+  border-bottom-width: 0 !important;
+  border-bottom-color: transparent !important;
+}
+
+// Style navbar menu items - bold text and hover color
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item {
+  font-weight: 600;
+
+  &:hover {
+    color: #9f1102;
+  }
+
+  a {
+    font-weight: 600;
+  }
+}
+
+.productsDropdown {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.ant-collapse-item-active {
+  background-color: #9f1102;
+  .ant-collapse-expand-icon {
+    color: #ffffff;
+  }
+  .ant-collapse-title {
+    color: #ffffff;
+  }
+}
+
+// Change selected item color to primary
+.ant-menu-light.ant-menu-horizontal > .ant-menu-item-selected {
+  color: #9f1102;
+  font-weight: 600;
+}
+
 // Navbar Responsive Styles
 .desktop-menu {
   display: flex;
@@ -76,6 +119,14 @@ a {
   justify-content: flex-end;
   align-items: center;
   margin: 20px 0;
+  a {
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #9f1102 !important;
+    }
+  }
 
   @media (max-width: $breakpoint-mobile) {
     display: none;

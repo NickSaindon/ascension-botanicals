@@ -1,7 +1,16 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Layout, Menu, Button, Drawer, theme, Badge, Space } from "antd";
+import {
+  Layout,
+  Menu,
+  Button,
+  Drawer,
+  theme,
+  Badge,
+  Space,
+  Dropdown,
+} from "antd";
 import {
   MenuOutlined,
   HomeOutlined,
@@ -9,6 +18,8 @@ import {
   MailOutlined,
   UserOutlined,
   ShoppingCartOutlined,
+  AppstoreOutlined,
+  DownOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
 
@@ -38,11 +49,27 @@ const Navbar = () => {
       label: <Link href="/wholesale">Wholesale</Link>,
     },
     {
+      key: "/news",
+      icon: <InfoCircleOutlined />,
+      label: <Link href="/news">News</Link>,
+    },
+    {
       key: "/contact",
       icon: <MailOutlined />,
       label: <Link href="/contact">Contact</Link>,
     },
   ];
+
+  const productMenuItems = [
+    {
+      key: "/categories",
+      label: <Link href="/categories">Raw Powder</Link>,
+    },
+  ];
+
+  const productsDropdownMenu = {
+    items: productMenuItems,
+  };
 
   const showDrawer = () => {
     setDrawerVisible(true);
@@ -98,17 +125,84 @@ const Navbar = () => {
 
       {/* Desktop Menu (visible above 900px) */}
       <div className="desktop-menu">
-        <Menu
-          mode="horizontal"
-          selectedKeys={[router.pathname]}
-          items={menuItems}
-          style={{
-            flex: 1,
-            minWidth: 0,
-            border: "none",
-            backgroundColor: "transparent",
-          }}
-        />
+        <div
+          style={{ display: "flex", alignItems: "center", flex: 1, gap: "0px" }}
+        >
+          <Link
+            href="/"
+            style={{
+              padding: "0 16px",
+              fontWeight: 600,
+              color: router.pathname === "/" ? "#9f1102" : "inherit",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <HomeOutlined /> Home
+          </Link>
+          <Link
+            href="/about"
+            style={{
+              padding: "0 16px",
+              fontWeight: 600,
+              color: router.pathname === "/about" ? "#9f1102" : "inherit",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <InfoCircleOutlined /> About
+          </Link>
+          <Dropdown menu={productsDropdownMenu} trigger={["click"]}>
+            <Button
+              type="text"
+              className="productsDropdown"
+              icon={<AppstoreOutlined />}
+            >
+              Products <DownOutlined />
+            </Button>
+          </Dropdown>
+          <Link
+            href="/wholesale"
+            style={{
+              padding: "0 16px",
+              fontWeight: 600,
+              color: router.pathname === "/wholesale" ? "#9f1102" : "inherit",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <InfoCircleOutlined /> Wholesale
+          </Link>
+          <Link
+            href="/news"
+            style={{
+              padding: "0 16px",
+              fontWeight: 600,
+              color: router.pathname === "/news" ? "#9f1102" : "inherit",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <InfoCircleOutlined /> News
+          </Link>
+          <Link
+            href="/contact"
+            style={{
+              padding: "0 16px",
+              fontWeight: 600,
+              color: router.pathname === "/contact" ? "#9f1102" : "inherit",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+            }}
+          >
+            <MailOutlined /> Contact
+          </Link>
+        </div>
         <Space size="middle" style={{ marginLeft: "16px" }}>
           <Button type="text" icon={<UserOutlined />} onClick={handleLogin}>
             Login
@@ -145,7 +239,21 @@ const Navbar = () => {
           mode="vertical"
           selectedKeys={[router.pathname]}
           items={[
-            ...menuItems,
+            menuItems[0], // Home
+            menuItems[1], // About
+            {
+              key: "products",
+              icon: <AppstoreOutlined />,
+              label: "Products",
+              children: [
+                {
+                  key: "/categories",
+                  label: <Link href="/categories">Raw Powder</Link>,
+                  onClick: () => closeDrawer(),
+                },
+              ],
+            },
+            ...menuItems.slice(2), // Wholesale, News, Contact
             {
               type: "divider",
             },
