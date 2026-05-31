@@ -25,6 +25,8 @@ import {
   ThunderboltOutlined,
 } from "@ant-design/icons";
 import type { CollapseProps } from "antd";
+import Layout from "../components/Layout";
+
 import styles from "@/styles/Home.module.scss";
 
 const { Title, Paragraph, Text } = Typography;
@@ -67,17 +69,7 @@ export default function Home() {
   };
 
   return (
-    <>
-      <Head>
-        <title>Ant Design with Custom Theme - Next.js</title>
-        <meta
-          name="description"
-          content="Next.js app with Ant Design and custom theme"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout>
       {/* Hero Section */}
       <section className={styles.heroSection}>
         <Image
@@ -421,7 +413,7 @@ export default function Home() {
                 size="large"
                 className={styles.whiteButton}
               >
-                About Us
+                Contact Us
               </Button>
             </div>
           </Col>
@@ -435,6 +427,6 @@ export default function Home() {
           </svg>
         </div>
       </section>
-    </>
+    </Layout>
   );
 }

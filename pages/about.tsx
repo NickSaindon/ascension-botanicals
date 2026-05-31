@@ -3,22 +3,16 @@ import { Typography, Row, Col, Card, Flex } from "antd";
 import { StarOutlined } from "@ant-design/icons";
 import styles from "../styles/About.module.scss";
 import Hero from "../components/Hero";
+import Layout from "../components/Layout";
 
 const { Title, Paragraph } = Typography;
 
 export default function About() {
   return (
-    <>
-      <Head>
-        <title>About Us - The Future of Botanical Beverages</title>
-        <meta
-          name="description"
-          content="Learn more about our company and mission"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout
+      title="Ascension Botanicals | About"
+      description="Ascension Botanicals unveils Thailand's botanical wonders with our Kratom and Blue Lotus. Sourced from partner farms for pure, premium essence!"
+    >
       <div className={styles.page}>
         {/* Hero Section */}
         <Hero
@@ -200,6 +194,6 @@ export default function About() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

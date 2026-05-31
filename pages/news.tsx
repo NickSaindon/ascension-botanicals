@@ -8,6 +8,7 @@ import {
   ArrowRightOutlined,
 } from "@ant-design/icons";
 import Hero from "../components/Hero";
+import Layout from "../components/Layout";
 import styles from "../styles/News.module.scss";
 
 const { Title, Paragraph, Text } = Typography;
@@ -111,17 +112,7 @@ export default function News() {
   };
 
   return (
-    <>
-      <Head>
-        <title>News & Blog - Ascension Botanicals</title>
-        <meta
-          name="description"
-          content="Stay updated with the latest news, insights, and stories from Ascension Botanicals"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout>
       {/* Hero Section */}
       <Hero
         title="Our Blog"
@@ -288,6 +279,6 @@ export default function News() {
           </div>
         </section>
       </div>
-    </>
+    </Layout>
   );
 }

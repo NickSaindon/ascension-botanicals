@@ -19,9 +19,13 @@ import {
   UserOutlined,
   ShoppingCartOutlined,
   AppstoreOutlined,
+  ProductOutlined,
+  TruckOutlined,
+  FileTextOutlined,
   DownOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
+import data from "../utils/data";
 
 const { Header } = Layout;
 const { useToken } = theme;
@@ -60,12 +64,11 @@ const Navbar = () => {
     },
   ];
 
-  const productMenuItems = [
-    {
-      key: "/categories",
-      label: <Link href="/categories">Raw Powder</Link>,
-    },
-  ];
+  // Generate product menu items dynamically from data.js categories
+  const productMenuItems = data.categories.map((category) => ({
+    key: `/category/${category.slug}`,
+    label: <Link href={`/category/${category.slug}`}>{category.name}</Link>,
+  }));
 
   const productsDropdownMenu = {
     items: productMenuItems,
@@ -158,7 +161,7 @@ const Navbar = () => {
             <Button
               type="text"
               className="productsDropdown"
-              icon={<AppstoreOutlined />}
+              icon={<ProductOutlined />}
             >
               Products <DownOutlined />
             </Button>
@@ -174,7 +177,7 @@ const Navbar = () => {
               gap: "8px",
             }}
           >
-            <InfoCircleOutlined /> Wholesale
+            <TruckOutlined /> Wholesale
           </Link>
           <Link
             href="/news"
@@ -187,7 +190,7 @@ const Navbar = () => {
               gap: "8px",
             }}
           >
-            <InfoCircleOutlined /> News
+            <FileTextOutlined /> News
           </Link>
           <Link
             href="/contact"
@@ -245,13 +248,15 @@ const Navbar = () => {
               key: "products",
               icon: <AppstoreOutlined />,
               label: "Products",
-              children: [
-                {
-                  key: "/categories",
-                  label: <Link href="/categories">Raw Powder</Link>,
-                  onClick: () => closeDrawer(),
-                },
-              ],
+              children: data.categories.map((category) => ({
+                key: `/category/${category.slug}`,
+                label: (
+                  <Link href={`/category/${category.slug}`}>
+                    {category.name}
+                  </Link>
+                ),
+                onClick: () => closeDrawer(),
+              })),
             },
             ...menuItems.slice(2), // Wholesale, News, Contact
             {

@@ -18,6 +18,7 @@ import {
   UserOutlined,
   SendOutlined,
 } from "@ant-design/icons";
+import Layout from "../components/Layout";
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
@@ -43,13 +44,10 @@ export default function Contact() {
   };
 
   return (
-    <>
-      <Head>
-        <title>Contact Us - My App</title>
-        <meta name="description" content="Get in touch with us" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <Layout
+      title="Dragon Organics | About"
+      description="Dragon Organics unveils Thailand's botanical wonders with our Kratom and Blue Lotus. Sourced from partner farms for pure, premium essence!"
+    >
       <div
         style={{
           minHeight: "calc(100vh - 64px)",
@@ -303,6 +301,6 @@ export default function Contact() {
           </Flex>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }

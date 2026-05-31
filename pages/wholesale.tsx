@@ -22,6 +22,8 @@ import {
   HeartOutlined,
   CustomerServiceOutlined,
 } from "@ant-design/icons";
+import Hero from "../components/Hero";
+import Layout from "../components/Layout";
 
 const { Title, Paragraph, Text } = Typography;
 const { TextArea } = Input;
@@ -44,12 +46,12 @@ export default function Wholesale() {
   const faqItems = [
     {
       key: "1",
-      label: "WHO CAN BECOME A MITRA9 WHOLESALER?",
+      label: "WHO CAN BECOME A ASCENSION BOTANICALS WHOLESALER?",
       children: (
         <Text>
           Any business owner with a valid business license and retail location
-          can apply to become a Mitra9 wholesaler. We work with smoke shops,
-          wellness stores, convenience stores, and more.
+          can apply to become a Ascension Botanicals wholesaler. We work with
+          smoke shops, wellness stores, convenience stores, and more.
         </Text>
       ),
     },
@@ -67,12 +69,12 @@ export default function Wholesale() {
     {
       key: "3",
       label:
-        "IT LOOKS LIKE MITRA9 BEVERAGES EXCLUSIVELY AMONGST MITRA9 LEAF EXTRACTS?",
+        "IT LOOKS LIKE ASCENSION BOTANICALS SHOT DRINKS EXCLUSIVELY AMONGST ASCENSION BOTANICALS LEAF EXTRACTS?",
       children: (
         <Text>
-          Yes, our beverages are exclusively crafted with premium Mitra9
-          botanical extracts, ensuring consistent quality and effectiveness in
-          every bottle.
+          Yes, our beverages are exclusively crafted with premium Ascension
+          Botanicals botanical extracts, ensuring consistent quality and
+          effectiveness in every bottle.
         </Text>
       ),
     },
@@ -89,7 +91,7 @@ export default function Wholesale() {
     },
     {
       key: "5",
-      label: "WHAT COMES AFTER YOU FILL OUT MITRA9 FORM?",
+      label: "WHAT COMES AFTER YOU FILL OUT ASCENSION BOTANICALS FORM?",
       children: (
         <Text>
           After submitting your application, our team will review your
@@ -102,106 +104,17 @@ export default function Wholesale() {
   ];
 
   return (
-    <>
-      <Head>
-        <title>Wholesale - The Future of Botanical Beverages</title>
-        <meta
-          name="description"
-          content="Partner with us for wholesale botanical beverages"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
+    <Layout
+      title="Dragon Organics | Wholesale"
+      description="Dragon Organics unveils Thailand's botanical wonders with our Kratom and Blue Lotus. Sourced from partner farms for pure, premium essence!"
+    >
       <div style={{ background: "#ffffff", overflow: "hidden" }}>
         {/* Hero Section */}
-        <div
-          style={{
-            position: "relative",
-            background: "linear-gradient(135deg, #0066ff 0%, #0052cc 100%)",
-            padding: "80px 24px 100px",
-            overflow: "hidden",
-          }}
-        >
-          {/* Decorative circles */}
-          <div
-            style={{
-              position: "absolute",
-              top: "30px",
-              right: "30px",
-              width: "20px",
-              height: "20px",
-              borderRadius: "50%",
-              border: "3px solid #00ff88",
-              background: "transparent",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: "80px",
-              right: "100px",
-              width: "14px",
-              height: "14px",
-              borderRadius: "50%",
-              background: "#ffaa00",
-            }}
-          />
-
-          <div
-            style={{
-              maxWidth: 1200,
-              margin: "0 auto",
-              position: "relative",
-              zIndex: 1,
-            }}
-          >
-            <Text
-              style={{
-                color: "rgba(255,255,255,0.9)",
-                fontSize: "14px",
-                fontWeight: 600,
-                textTransform: "uppercase",
-                letterSpacing: "2px",
-                display: "block",
-                marginBottom: "16px",
-              }}
-            >
-              The Future of
-            </Text>
-            <Title
-              level={1}
-              style={{
-                fontSize: "clamp(36px, 7vw, 64px)",
-                fontWeight: 900,
-                color: "#ffffff",
-                lineHeight: 1.1,
-                margin: "0 0 40px 0",
-                textTransform: "uppercase",
-                letterSpacing: "-2px",
-              }}
-            >
-              BOTANICAL
-              <br />
-              BEVERAGES
-            </Title>
-            <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-              <Image
-                src="/cozy-family-moments.jpg"
-                alt="Team collaboration"
-                width={700}
-                height={400}
-                style={{
-                  width: "100%",
-                  height: "auto",
-                  borderRadius: "12px",
-                  boxShadow: "0 20px 60px rgba(0,0,0,0.3)",
-                }}
-                priority
-              />
-            </div>
-          </div>
-        </div>
+        <Hero
+          title="Wholesale"
+          subtitle="QUALITY IN ONE PLACE"
+          backgroundImage="/images/image1.png"
+        />
 
         {/* Intro Section */}
         <div style={{ padding: "80px 24px", background: "#ffffff" }}>
@@ -214,8 +127,8 @@ export default function Wholesale() {
                 margin: "0 0 24px 0",
               }}
             >
-              Join us in revolutionizing the botanical beverage industry with
-              MITRA9, a brand for real leaders, industry shifters and those
+              Join us in revolutionizing the Kratom industry with Ascension
+              Botanicals, a brand for real leaders, industry shifters and those
               looking to diversify and growing their business product lines.
             </Paragraph>
             <Paragraph
@@ -230,21 +143,6 @@ export default function Wholesale() {
               modern functional beverage trends, our products are changing the
               game—one sip at a time.
             </Paragraph>
-            <Button
-              type="primary"
-              size="large"
-              style={{
-                background: "#0066ff",
-                borderColor: "#0066ff",
-                height: "48px",
-                padding: "0 40px",
-                fontSize: "16px",
-                fontWeight: 600,
-                borderRadius: "8px",
-              }}
-            >
-              Learn More
-            </Button>
           </div>
         </div>
 
@@ -259,7 +157,7 @@ export default function Wholesale() {
             <Title
               level={2}
               style={{
-                color: "#0066ff",
+                color: "#9f1102",
                 fontSize: "clamp(24px, 4vw, 36px)",
                 fontWeight: 900,
                 textTransform: "uppercase",
@@ -273,7 +171,7 @@ export default function Wholesale() {
             <Row gutter={[48, 32]}>
               <Col xs={24} md={12}>
                 <Image
-                  src="/cozy-family-moments.jpg"
+                  src="/images/free-shipment.png"
                   alt="Wholesale benefits"
                   width={500}
                   height={350}
@@ -284,35 +182,6 @@ export default function Wholesale() {
                     boxShadow: "0 8px 24px rgba(0,0,0,0.1)",
                   }}
                 />
-                {/* Decorative circles */}
-                <div
-                  style={{
-                    position: "relative",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: "-40px",
-                      left: "-20px",
-                      width: "30px",
-                      height: "30px",
-                      borderRadius: "50%",
-                      background: "#ff6b35",
-                    }}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "40px",
-                      left: "-30px",
-                      width: "20px",
-                      height: "20px",
-                      borderRadius: "50%",
-                      background: "#ff0066",
-                    }}
-                  />
-                </div>
               </Col>
               <Col xs={24} md={12}>
                 <Flex vertical gap="large">
@@ -320,7 +189,7 @@ export default function Wholesale() {
                     <CheckCircleOutlined
                       style={{
                         fontSize: "24px",
-                        color: "#0066ff",
+                        color: "#9f1102",
                         marginTop: "4px",
                       }}
                     />
@@ -351,7 +220,7 @@ export default function Wholesale() {
                     <CheckCircleOutlined
                       style={{
                         fontSize: "24px",
-                        color: "#0066ff",
+                        color: "#9f1102",
                         marginTop: "4px",
                       }}
                     />
@@ -382,7 +251,7 @@ export default function Wholesale() {
                     <CheckCircleOutlined
                       style={{
                         fontSize: "24px",
-                        color: "#0066ff",
+                        color: "#9f1102",
                         marginTop: "4px",
                       }}
                     />
@@ -417,8 +286,7 @@ export default function Wholesale() {
             <div style={{ marginTop: "60px" }}>
               <Card
                 style={{
-                  background:
-                    "linear-gradient(135deg, #0066ff 0%, #0052cc 100%)",
+                  background: "#9f1102",
                   border: "none",
                   borderRadius: "16px",
                 }}
@@ -433,7 +301,7 @@ export default function Wholesale() {
                     margin: "0 0 16px 0",
                   }}
                 >
-                  Available Exclusively in Mitra9
+                  Available Exclusively in Acsencion Botanicals
                 </Title>
                 <Paragraph
                   style={{
@@ -443,9 +311,9 @@ export default function Wholesale() {
                     margin: 0,
                   }}
                 >
-                  Stand out in your market with exclusive access to Mitra9
-                  botanical beverages. Our unique formulations are available
-                  only through authorized wholesale partners.
+                  Stand out in your market with exclusive access to Ascension
+                  Botanicals botanical beverages. Our unique formulations are
+                  available only through authorized wholesale partners.
                 </Paragraph>
               </Card>
             </div>
@@ -476,18 +344,7 @@ export default function Wholesale() {
             </Title>
 
             <Row gutter={32}>
-              <Col xs={24} md={4}>
-                <div
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #0066ff 0%, #0052cc 100%)",
-                    height: "100%",
-                    minHeight: "500px",
-                    borderRadius: "12px 0 0 12px",
-                  }}
-                />
-              </Col>
-              <Col xs={24} md={16}>
+              <Col xs={24} md={24}>
                 <Form
                   form={form}
                   layout="vertical"
@@ -548,33 +405,11 @@ export default function Wholesale() {
                   </Form.Item>
 
                   <Form.Item>
-                    <Button
-                      type="primary"
-                      htmlType="submit"
-                      block
-                      style={{
-                        background: "#0066ff",
-                        height: "48px",
-                        fontSize: "16px",
-                        fontWeight: 600,
-                        borderRadius: "8px",
-                      }}
-                    >
+                    <Button type="primary" htmlType="submit" block>
                       SEND
                     </Button>
                   </Form.Item>
                 </Form>
-              </Col>
-              <Col xs={24} md={4}>
-                <div
-                  style={{
-                    background:
-                      "linear-gradient(180deg, #0066ff 0%, #0052cc 100%)",
-                    height: "100%",
-                    minHeight: "500px",
-                    borderRadius: "0 12px 12px 0",
-                  }}
-                />
               </Col>
             </Row>
           </div>
@@ -584,8 +419,7 @@ export default function Wholesale() {
         <div
           style={{
             position: "relative",
-            background:
-              "linear-gradient(135deg, #ff6b35 0%, #ff9500 50%, #ff0099 100%)",
+            background: "linear-gradient(135deg, #9f1102 0%, #ff6b35 100%)",
             padding: "120px 24px 100px",
           }}
         >
@@ -645,7 +479,7 @@ export default function Wholesale() {
                 letterSpacing: "-1px",
               }}
             >
-              Kratom Leaf Extract and Kava Products,
+              Kratom Leaf Powder and Kratom Extract,
               <br />
               Designed for Retail Settings
             </Title>
@@ -752,8 +586,8 @@ export default function Wholesale() {
                         margin: 0,
                       }}
                     >
-                      Find your zen with our kava-infused beverages. Designed to
-                      help you unwind and relax after a long day.
+                      Find your zen with our kratom extract shot drinks.
+                      Designed to help you get that energy for you day.
                     </Paragraph>
                   </Flex>
                 </Card>
@@ -826,7 +660,7 @@ export default function Wholesale() {
             <Title
               level={2}
               style={{
-                color: "#0066ff",
+                color: "#9f1102",
                 fontSize: "clamp(28px, 5vw, 42px)",
                 fontWeight: 900,
                 textTransform: "uppercase",
@@ -840,10 +674,10 @@ export default function Wholesale() {
 
             <Row gutter={[32, 48]}>
               {[
-                { name: "KAVA VARIETY DRINK MIX", color: "#ff6b35" },
-                { name: "VARIETY VARIETY MULTICOLOR", color: "#0066ff" },
-                { name: "KAVA VARIETY PACK", color: "#ff0066" },
-                { name: "PREMIUM SHOT", color: "#8b3dff" },
+                { name: "KRATOM VARIETY SHOT DRINK", color: "#9f1102" },
+                { name: "VARIETY VARIETY MULTICOLOR", color: "#9f1102" },
+                { name: "KRATOM VARIETY SHOT DRINK", color: "#9f1102" },
+                { name: "VARIETY VARIETY MULTICOLOR", color: "#9f1102" },
               ].map((product, index) => (
                 <Col xs={24} sm={12} md={6} key={index}>
                   <Flex vertical gap="middle" align="center">
@@ -892,7 +726,7 @@ export default function Wholesale() {
         <div
           style={{
             position: "relative",
-            background: "linear-gradient(135deg, #0066ff 0%, #0052cc 100%)",
+            background: "linear-gradient(135deg, #9f1102 0%, #ff6b35 100%)",
             padding: "120px 24px 100px",
           }}
         >
@@ -1182,7 +1016,7 @@ export default function Wholesale() {
             <Title
               level={2}
               style={{
-                color: "#0066ff",
+                color: "#9f1102",
                 fontSize: "clamp(28px, 5vw, 42px)",
                 fontWeight: 900,
                 textTransform: "uppercase",
@@ -1377,7 +1211,7 @@ export default function Wholesale() {
             <Title
               level={2}
               style={{
-                color: "#0066ff",
+                color: "#9f1102",
                 fontSize: "clamp(28px, 5vw, 42px)",
                 fontWeight: 900,
                 textTransform: "uppercase",
@@ -1386,7 +1220,7 @@ export default function Wholesale() {
                 letterSpacing: "-1px",
               }}
             >
-              The Mitra9 Story
+              The Ascension Botanicals Story
             </Title>
 
             <Flex vertical gap="large">
@@ -1399,9 +1233,9 @@ export default function Wholesale() {
                 }}
               >
                 Founded with a vision to revolutionize the botanical beverage
-                industry, Mitra9 combines ancient wisdom with modern science to
-                create functional drinks that truly make a difference in
-                people&apos;s lives.
+                industry, Ascension Botanicals combines ancient wisdom with
+                modern science to create functional drinks that truly make a
+                difference in people&apos;s lives.
               </Paragraph>
               <Paragraph
                 style={{
@@ -1427,9 +1261,9 @@ export default function Wholesale() {
               >
                 Every bottle is crafted with care, tested rigorously, and
                 designed to deliver consistent results. When you partner with
-                Mitra9, you&apos;re not just selling beverages—you&apos;re
-                offering your customers a premium experience backed by science
-                and trusted by thousands.
+                Ascension Botanicals, you&apos;re not just selling
+                beverages—you&apos;re offering your customers a premium
+                experience backed by science and trusted by thousands.
               </Paragraph>
             </Flex>
           </div>
@@ -1439,7 +1273,7 @@ export default function Wholesale() {
         <div
           style={{
             position: "relative",
-            background: "linear-gradient(135deg, #ff6b35 0%, #ff9500 100%)",
+            background: "linear-gradient(135deg, #9f1102 0%, #ff6b35 100%)",
             padding: "100px 24px",
           }}
         >
@@ -1577,8 +1411,8 @@ export default function Wholesale() {
                       quality. Our products consistently rank among the top
                       sellers in retail locations, with excellent customer
                       reviews and high repeat purchase rates. Join hundreds of
-                      satisfied wholesale partners who trust Mitra9 for their
-                      inventory needs.
+                      satisfied wholesale partners who trust Ascension
+                      Botanicals for their inventory needs.
                     </Paragraph>
                   </div>
                 </Flex>
@@ -1598,7 +1432,7 @@ export default function Wholesale() {
             <Title
               level={2}
               style={{
-                color: "#0066ff",
+                color: "#9f1102",
                 fontSize: "clamp(28px, 5vw, 42px)",
                 fontWeight: 900,
                 textTransform: "uppercase",
@@ -1607,7 +1441,7 @@ export default function Wholesale() {
                 letterSpacing: "-1px",
               }}
             >
-              Mitra9 Wholesale FAQ&apos;s
+              Ascension Botanicals Wholesale FAQ&apos;s
             </Title>
 
             <Collapse
@@ -1623,6 +1457,6 @@ export default function Wholesale() {
           </div>
         </div>
       </div>
-    </>
+    </Layout>
   );
 }
